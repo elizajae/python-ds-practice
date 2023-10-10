@@ -16,3 +16,11 @@ def friend_date(a, b):
         >>> friend_date(sauron, gandalf)
         True
     """
+    in_common  = False
+
+    for hobby in a[2]:
+        if hobby in b[2]:
+            in_common = True
+            break
+
+    return in_common

@@ -27,5 +27,26 @@ def is_odd_string(word):
         >>> is_odd_string('amazing')
         True
     """
+    # START SOLUTION
 
-    # Hint: you may find the ord() function useful here
+    # We could do this with a loop, but it's easier to use a list comprehension
+    # to get a list of character positions, then sum that list.
+
+    # We'll use ord() to get the character position of each letter. We'll
+    # need to convert the letter to lowercase first, since ord() gives us
+    # different values for uppercase and lowercase letters.
+
+    # We'll use a generator expression to convert each letter to its
+    # character position, then pass that to sum() to get the total.
+
+    # We'll use % to see if the total is odd or even.
+
+    total = 0
+
+    for char in word:
+        if char.islower():
+            total += ord(char) - ord('a') + 1
+        else:
+            total += ord(char) - ord('A') + 1
+
+    return total % 2 == 1
